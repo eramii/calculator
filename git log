@@ -1,0 +1,50 @@
+[33mcommit c4b5e8748a00a4e2dea6dbb1c3ea6179f407914d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: eramii <yeramiya@naver.com>
+Date:   Mon Mar 20 15:09:28 2023 +0900
+
+    example 3
+
+[1mdiff --git a/main.py b/main.py[m
+[1mindex 3777800..3f229f8 100644[m
+[1m--- a/main.py[m
+[1m+++ b/main.py[m
+[36m@@ -1,5 +1,7 @@[m
+ import sys[m
+[31m-from PyQt5.QtWidgets import QApplication, QWidget[m
+[32m+[m[32mfrom PyQt5.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,[m
+[32m+[m[32m                             QMessageBox)[m
+[32m+[m[32mfrom PyQt5.QtGui import QIcon[m
+ [m
+ [m
+ class Calculator(QWidget):[m
+[36m@@ -9,12 +11,26 @@[m [mclass Calculator(QWidget):[m
+         self.initUI()[m
+         [m
+     def initUI(self):[m
+[32m+[m[32m        self.btn1=QPushButton('Message',self)[m
+[32m+[m[32m        self.btn1.clicked.connect(self.activateMessage)[m
+[32m+[m[41m        [m
+[32m+[m[32m        vbox=QVBoxLayout()[m
+[32m+[m[32m        vbox.addStretch(1)[m
+[32m+[m[32m        vbox.addWidget(self.btn1)[m
+[32m+[m[32m        vbox.addStretch(1)[m
+[32m+[m[41m        [m
+[32m+[m[32m        self.setLayout(vbox)[m
+[32m+[m[41m        [m
+         self.setWindowTitle('Calculator')[m
+[31m-        self.resize(256, 256)[m
+[32m+[m[32m        self.setWindowIcon(QIcon('icon.png'))[m
+[32m+[m[32m        self.resize(256,256)[m
+         self.show()[m
+         [m
+[32m+[m[32m    def activateMessage(self):[m
+[32m+[m[32m        QMessageBox.informatissson(self,"information","Button clicked!")[m
+[32m+[m[41m        [m
+         [m
+ if __name__ == '__main__':[m
+[31m-    app = QApplication(sys.argv)[m
+[31m-    view = Calculator()[m
+[32m+[m[32m    app=QApplication(sys.argv)[m
+[32m+[m[32m    view=Calculator()[m
+     sys.exit(app.exec_())[m
+\ No newline at end of file[m
